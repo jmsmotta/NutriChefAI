@@ -1,3 +1,8 @@
+@font-face {
+  font-family: mainFont;
+  src: url(/fonts/principal-font/font-principal.ttf);
+}
+
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -13,7 +18,7 @@
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
-  font-family: var(--font-geist-sans);
+  font-family: mainFont;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -165,4 +170,46 @@ a.secondary {
   .logo {
     filter: invert();
   }
+}
+
+
+.bgContainer{
+  position: absolute;
+  top: 100px;
+}
+
+.pageTitle{
+  font-weight: bold;
+  font-size: 38px;
+  position: absolute;
+  top: 18px;
+  left: 48px;
+}
+
+.receitaInput{
+  position: absolute;
+  top: 126px;
+  left: 46px;
+  outline: 0;
+  border: 0;
+  background-color: none;
+  font-size: 28px;
+  width: 700px;
+  font-family: mainFont;
+  background: none;
+}
+
+.submitIngredientes{
+  position: absolute;
+  font-size: 28px;
+  left: 100px;
+  outline: 0;
+  top: 190px;
+  height: 46px;
+  padding-inline: 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  background-color:  #aa3e3b;
+  border: 3px solid #b76d59;
+  color: #e2d7be;
 }
