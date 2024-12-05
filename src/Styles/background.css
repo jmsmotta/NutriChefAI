@@ -1,0 +1,13 @@
+.background{
+    background-image: url('/images/Background.png');
+    background-position: center;
+    background-repeat:repeat-x;
+    background-size: contain;
+
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    
+  }

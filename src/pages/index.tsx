@@ -1,15 +1,24 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import styles from "./page.module.css";
-import '../../app/globals.css'
+import styles from "../Styles/page.module.css";
+import '../Styles/globals.css';
+
+
+import Layout from "@/components/layout";
+import RecipeGenerate from "@/components/RecipeGenerate";
+
 
 const Receitas = () =>{
-  const [answer, setAnswer] = useState(" ");
-  const [userIngredientes, setUserIngredientes] = useState("")
+  //const [answer, setAnswer] = useState(" ");
+ // const [userIngredientes, setUserIngredientes] = useState("")
  
   
 
     return (
+        <Layout>
+          <RecipeGenerate/>
+        </Layout>
+        /*
         <div className={styles.page}>
         <div className={styles.bgContainer}>
         <h1 className={styles.pageTitle}>
@@ -20,6 +29,7 @@ const Receitas = () =>{
         <button  className={styles.submitIngredientes}>Gerar minha receita</button>
         </div>
       </div>
+      */
     )
 }
 
