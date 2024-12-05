@@ -1,67 +1,53 @@
-export default function RecipeGenerate(){
+import React, { useState } from "react";
 
-    return(
+import  '../Styles/RecipeGenerate.css';
 
-        <div style={{
-            
-            height:'100%',
-            width:'40%',
-            padding:'1rem',
-            margin:'3rem',
-            display:'flex',
-            flexDirection: 'column',
-            alignItems:'center',
-            justifyContent:'space-between'
-        }}>
-            <div style={{
-                backgroundColor:'#E7D7A4',
-                opacity:'0.95',
-                padding: '1rem',
-                margin: '1rem',
-                width:'100%',
-                height:'100%',
-                maxHeight:'90px',
-                borderRadius:'15px'
-            }}>
-            prompt
-            </div>
+import {getRecipe} from '../api/index.js';
 
-            <div style={{
-                backgroundColor:'#E7D7A4',
-                opacity:'0.95',
-                padding: '1rem',
-                margin: '1rem',
-                width:'100%',
-                height:'100%',
-                maxHeight:'625px',
-                borderRadius:'15px'
-            }}>
-                
-                <div style={{
-                    display:'flex',
-                    justifyContent: 'space-between'
-                }}> 
-                    <div style={{
-                        padding: '0.25rem',
-                        margin: '0.25rem',
-                    }}>LEGUMES REFOGADOS</div>
+export default function RecipeGenerate() {
+  const [answer, setAnswer] = useState(""); // Para armazenar o valor final
+  const [userIngredientes, setUserIngredientes] = useState(""); // Para capturar o valor do input
 
-                    <div style={{
-                        color:'white',
-                        padding: '0.25rem',
-                        margin: '0.25rem',
-                        borderRadius:'15px',
-                        backgroundColor: 'black',
-                        width:'150px',
-                        height:'150px',
-                        
+  // Função chamada ao clicar no botão
+  const handleGenerate = async () => {
+    const listUserIngredients = userIngredientes.split(';')
 
-                    }}>IMAGEM GERADA</div>
-                </div>
+    try {
+        const geminiAI = await getRecipe(listUserIngredients);
+        setAnswer(geminiAI.response.text());
+    } catch (error) {
+        setAnswer("A API está sobrecarregada. Tente novamente mais tarde.");
+    console.error("Erro ao gerar a receita:", error);
+    }
 
-                
-            </div>
+     
+     
+  };
 
+  return (
+    <div className="generateRecipe">
+      <div className="inputGenerate">
+        {/* Campo de input */}
+            <input
+            value={userIngredientes}
+            onChange={(e) => setUserIngredientes(e.target.value)} // Atualiza o estado em tempo real
+            placeholder="Digite 2 ingredientes separados por ';'"
+            type="text"
+            />
+            {/* Botão para armazenar o valor */}
+            <button onClick={handleGenerate}>Gerar minha receita</button>
+      </div>
+
+      <div className="notebook">
+            {/* Renderiza os ingredientes armazenados */}
+            <div className="recipeContent">
+
+                <div style={{ padding: "0.25rem", margin: "0.25rem", backgroundColor: 'black'}}>
+                {answer || "Nenhuma receita gerada ainda"} </div>
+
+                <div className="generateImg">IMAGEM GERADA</div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }

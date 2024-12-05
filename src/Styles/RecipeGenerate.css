@@ -1,0 +1,55 @@
+.generateRecipe{
+    
+    color: white;
+    height: 100%;
+    width: 40%;
+    padding: 1rem;
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+      
+}
+.inputGenerate{
+
+    background-color: #E7D7A4;
+    opacity: 0.95;
+    padding: 1rem;
+    margin: 1rem;
+    width: 100%;
+    height: 100%;
+    max-height: 90px;
+    border-radius: 15px;
+    
+}
+
+.notebook{
+
+    background-color: #E7D7A4;
+    opacity: 0.95;
+    padding: 1rem;
+    margin: 1rem;
+    width: 100%;
+    height: 100%;
+    max-height: 625px;
+    border-radius: 15px;
+      
+}
+
+.generateImg{   
+  
+    color: white;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    border-radius: 15px;
+    background-color: black;
+    width: 150px;
+    height: 150px;
+}
+
+.recipeContent{
+    display: flex;
+    justify-content: space-between;
+
+}
