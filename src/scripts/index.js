@@ -47,19 +47,15 @@ export async function getRecipe(ingredients) { //recebe uma lista de ingrediente
         ]
     }
 
-    Onde i<=8
+    Onde i<=8 ; n <= 8
     `;
     
  
     // Aguarda a resposta da API
     const result = await model.generateContent(prompt)
+    // transforma resposta em um Json
     const cleanText = clearJson(result.response.text())
-   // console.log(cleanText);
-    //console.log(typeof(cleanText));
-    // Exibe o resultado no console
-
    
-
     return cleanText; 
 }
 

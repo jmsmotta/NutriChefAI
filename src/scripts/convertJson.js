@@ -1,5 +1,3 @@
-//import { json } from "stream/consumers";
-
 export function clearJson(stringJson) {
 
     let chavesIncompletas = 0;
@@ -21,7 +19,6 @@ export function clearJson(stringJson) {
 
   try {
       const jsonObject = JSON.parse(cleanText);
-      console.log('entrou')
       return jsonObject;
     } catch (error) {
       console.error("Erro ao analisar o JSON:", error);

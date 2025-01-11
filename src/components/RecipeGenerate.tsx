@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import  '../Styles/RecipeGenerate.css';
 
 import {getRecipe} from '../scripts/index.js';
+import Recipe from "./Recipe";
+
 
 export default function RecipeGenerate() {
-  const [answer, setAnswer] = useState(""); // Para armazenar o valor final
+  const [geminiAI, setGeminiAI] = useState<any | null>(null);
   const [userIngredientes, setUserIngredientes] = useState(""); // Para capturar o valor do input
 
   // Função chamada ao clicar no botão
@@ -13,13 +15,10 @@ export default function RecipeGenerate() {
     const listUserIngredients = userIngredientes.split(';')
 
     try {
-        const geminiAI = await getRecipe(listUserIngredients);
-        //const text = await geminiAI.response.text();  // Garantir que o texto esteja correto
+        const response = await getRecipe(listUserIngredients);
+        setGeminiAI(response);
 
-        console.log(geminiAI)
-        setAnswer(geminiAI.title);
     } catch (error) {
-        setAnswer("A API está sobrecarregada. Tente novamente mais tarde.");
         console.error("Erro ao gerar a receita:", error);
     }
   };
@@ -42,8 +41,18 @@ export default function RecipeGenerate() {
             {/* Renderiza os ingredientes armazenados */}
             <div className="recipeContent">
 
-                <div style={{ padding: "0.25rem", margin: "0.25rem", backgroundColor: 'black',}}>
-                {answer || "Nenhuma receita gerada ainda"} </div>
+            <div id="content" style={{ padding: "0.25rem", margin: "0.25rem", backgroundColor: 'black' }}>
+                {geminiAI ? (
+                  <Recipe
+                    title={geminiAI.title}
+                    ingredients={geminiAI.ingredientes}
+                    preparation={geminiAI.modoDePreparo}
+                    harmonizations={geminiAI.harmonizacoes}
+                  />
+                ) : (
+                  "nenhuma receita gerada ainda"
+                )}
+            </div>
 
                 <div className="generateImg">IMAGEM GERADA</div>
         </div>
