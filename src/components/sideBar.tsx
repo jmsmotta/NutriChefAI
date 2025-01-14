@@ -3,8 +3,7 @@ export default function sideBar(){
     return(
 
         <div style={{backgroundColor: '#E7D7A4', 
-            height: '100vh',
-            width:'20%', 
+            height: '100%', 
             maxWidth: '250px',
             opacity:'0.95',
             display: 'flex',

@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
     <div className='background'>
       
       <SideBar/>
-      <div style={{ width:'100%', height:'100%',
+      <div style={{ width:'100%',
         display:'flex',
         alignItems:'center',
         flexDirection:'column'

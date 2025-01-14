@@ -30,7 +30,7 @@ export default function RecipeGenerate() {
             <input className="input"
             value={userIngredientes}
             onChange={(e) => setUserIngredientes(e.target.value)} // Atualiza o estado em tempo real
-            placeholder="Digite 2 ingredientes separados por ';'"
+            placeholder="Digite os ingredientes separados por ';'"
             type="text"
             />
             {userIngredientes && (<button className="button" onClick={handleGenerate}>Gerar minha receita</button>)}
