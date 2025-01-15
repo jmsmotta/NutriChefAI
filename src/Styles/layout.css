@@ -1,0 +1,19 @@
+.background{
+  background-image: url('/images/Background.png');
+  background-position: center;
+  background-repeat:repeat;
+  background-size: contain;
+  
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 85%;
+
+}
+
+.children{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content: center;     
+
+}

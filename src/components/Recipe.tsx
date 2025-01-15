@@ -1,7 +1,6 @@
 import React from "react";
 
 interface RecipeProps {
-    title: string;
     ingredients: string[];
     preparation: string[];
     harmonizations: { tip: string; justification: string }[];
@@ -9,9 +8,10 @@ interface RecipeProps {
 
 export default function Recipe(props: RecipeProps){
 
+    console.log("dica 1" + props.harmonizations[0].tip);
+
     return (
         <>
-             <h1>{props.title}</h1>
 
              <h2>Ingredientes:</h2>
 
@@ -21,13 +21,21 @@ export default function Recipe(props: RecipeProps){
              <ol> {props.preparation.map((step, index) => (<li key={index}>{step}</li>))} </ol>
 
              <h2>Harmonizations:</h2>
-             <ul> {props.harmonizations.map((harmonization, index) => (
-                <li key={index}>
-                <strong>Dica: </strong> {harmonization.tip} <br />
-                <strong>Justificativa: </strong> {harmonization.justification}
-                </li>
-                ))}
-            </ul>
+             
+             {props.harmonizations?.length ? (
+  <ul>
+    {props.harmonizations.map((harmonization, index) => (
+      <li key={index}>
+        <strong>Dica: </strong> {harmonization.tip} <br />
+        <strong>Justificativa: </strong> {harmonization.justification}
+      </li>
+    ))}
+  </ul>
+) : (
+  <p>Nenhuma harmonização disponível.</p>
+)}
+
+            
 
 
         </>

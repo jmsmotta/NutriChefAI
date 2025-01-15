@@ -7,17 +7,23 @@ import Recipe from "./Recipe";
 
 
 export default function RecipeGenerate() {
-  const [geminiAI, setGeminiAI] = useState<any | null>(null);
+  const [geminiAI, setGeminiAI] = useState <any | null>(null);
   const [userIngredientes, setUserIngredientes] = useState(""); // Para capturar o valor do input
-
+  const handleClick = () => {
+    console.log(geminiAI);
+  };
   // Função chamada ao clicar no botão
   const handleGenerate = async () => {
+    
+
+
     const listUserIngredients = userIngredientes.split(';')
 
     try {
         const response = await getRecipe(listUserIngredients);
         setGeminiAI(response);
-
+        console.log(response.harmonizacoes);
+        
     } catch (error) {
         console.error("Erro ao gerar a receita:", error);
     }
@@ -36,27 +42,25 @@ export default function RecipeGenerate() {
             {userIngredientes && (<button className="button" onClick={handleGenerate}>Gerar minha receita</button>)}
             
       </div>
-
-      <div className="notebook">
-            {/* Renderiza os ingredientes armazenados */}
-            <div className="recipeContent">
-
-            <div id="content" style={{ padding: "0.25rem", margin: "0.25rem", backgroundColor: 'black' }}>
-                {geminiAI ? (
-                  <Recipe
-                    title={geminiAI.title}
-                    ingredients={geminiAI.ingredientes}
-                    preparation={geminiAI.modoDePreparo}
-                    harmonizations={geminiAI.harmonizacoes}
-                  />
-                ) : (
-                  "nenhuma receita gerada ainda"
-                )}
+      
+      
+      {/* Renderiza receita se geminiAI existir */}
+      {geminiAI ? (
+        <div className="notebook">  
+          <div className="recipeContent">
+            <div className="recipe-top">
+              <h1>{geminiAI.title}</h1>
+              <div className="img-content">IMAGEM GERADA</div>
             </div>
-
-                <div className="generateImg">IMAGEM GERADA</div>
+            <div className="text-content">
+           
+              <Recipe  ingredients={geminiAI.ingredientes} preparation={geminiAI.modoDePreparo} harmonizations={geminiAI.harmonizacoes}/>
+            </div>
+            <button onClick={handleClick}>Clique aqui</button>
+                    
+          </div>                  
         </div>
-      </div>
+                ) : null}
     </div>
   );
 }
