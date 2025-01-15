@@ -8,11 +8,11 @@ interface RecipeProps {
 
 export default function Recipe(props: RecipeProps){
 
-    console.log("dica 1" + props.harmonizations[0].tip);
+    console.log("dica 1" , props.harmonizations);
+   
 
     return (
         <>
-
              <h2>Ingredientes:</h2>
 
              <ul> {props.ingredients.map((ingredient, index) => (<li key={index}>{ingredient}</li> ))} </ul>
@@ -22,22 +22,14 @@ export default function Recipe(props: RecipeProps){
 
              <h2>Harmonizations:</h2>
              
-             {props.harmonizations?.length ? (
-  <ul>
-    {props.harmonizations.map((harmonization, index) => (
-      <li key={index}>
-        <strong>Dica: </strong> {harmonization.tip} <br />
-        <strong>Justificativa: </strong> {harmonization.justification}
-      </li>
-    ))}
-  </ul>
-) : (
-  <p>Nenhuma harmonização disponível.</p>
-)}
-
-            
-
-
+            <ul>
+              {props.harmonizations.map((harmonization, index) => (
+                <li key={index}>
+                  <strong>Dica: </strong> {harmonization.tip} <br />
+                  <strong>Justificativa: </strong> {harmonization.justification}
+                </li>
+              ))}
+            </ul>
         </>
     )
 }

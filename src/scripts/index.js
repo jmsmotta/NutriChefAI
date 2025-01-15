@@ -19,7 +19,7 @@ export async function getRecipe(ingredients) { //recebe uma lista de ingrediente
     prompt += `;\n A resposta deve ser formatada como num arquivo JSON, no seguinte modelo:
       {
         "title": "um nome criativo para o prato",
-        "ingredientes": [
+        "ingredients": [
           "ingrediente 1",
           "ingrediente 2",
           "ingrediente 3", ...
@@ -27,7 +27,7 @@ export async function getRecipe(ingredients) { //recebe uma lista de ingrediente
           "ingrediente n-1",
           "ingrediente n"
         ],
-        "modoDePreparo": [
+        "preparation": [
             "Passo 1",
             "Passo 2",
             "Passo 3", ...
@@ -35,14 +35,14 @@ export async function getRecipe(ingredients) { //recebe uma lista de ingrediente
             "Passo i-1",
             "Passo i"
           ],
-        "harmonizacoes": [
+        "harmonizations": [
           {
-            "dica": "dica 1 de harmonização para o prato criado",
-            "justificativa": "justificativa para dica 1"
+            "tip": "dica 1 de harmonização para o prato criado",
+            "justification": "justificativa para dica 1"
           },
           {
-            "dica": "dica 2 de harmonização para o prato criado",
-            "justificativa": "justificativa para dica 2."
+            "tip": "dica 2 de harmonização para o prato criado",
+            "justification": "justificativa para dica 2."
           },
         ]
     }

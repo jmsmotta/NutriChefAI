@@ -9,19 +9,15 @@ import Recipe from "./Recipe";
 export default function RecipeGenerate() {
   const [geminiAI, setGeminiAI] = useState <any | null>(null);
   const [userIngredientes, setUserIngredientes] = useState(""); // Para capturar o valor do input
-  const handleClick = () => {
-    console.log(geminiAI);
-  };
+  
   // Função chamada ao clicar no botão
   const handleGenerate = async () => {
-    
-
-
     const listUserIngredients = userIngredientes.split(';')
 
     try {
         const response = await getRecipe(listUserIngredients);
         setGeminiAI(response);
+        console.log(response)
         console.log(response.harmonizacoes);
         
     } catch (error) {
@@ -29,6 +25,7 @@ export default function RecipeGenerate() {
     }
   };
 
+    console.log( "geminiAI : ",geminiAI)
   return (
     <div className="generateRecipe">
       <div className="inputGenerate">
@@ -54,9 +51,8 @@ export default function RecipeGenerate() {
             </div>
             <div className="text-content">
            
-              <Recipe  ingredients={geminiAI.ingredientes} preparation={geminiAI.modoDePreparo} harmonizations={geminiAI.harmonizacoes}/>
+              <Recipe  ingredients={geminiAI.ingredients} preparation={geminiAI.preparation} harmonizations={geminiAI.harmonizations}/>
             </div>
-            <button onClick={handleClick}>Clique aqui</button>
                     
           </div>                  
         </div>
