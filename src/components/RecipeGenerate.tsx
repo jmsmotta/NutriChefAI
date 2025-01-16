@@ -17,15 +17,12 @@ export default function RecipeGenerate() {
     try {
         const response = await getRecipe(listUserIngredients);
         setGeminiAI(response);
-        console.log(response)
-        console.log(response.harmonizacoes);
         
     } catch (error) {
         console.error("Erro ao gerar a receita:", error);
     }
   };
 
-    console.log( "geminiAI : ",geminiAI)
   return (
     <div className="generateRecipe">
       <div className="inputGenerate">

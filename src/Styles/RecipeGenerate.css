@@ -1,6 +1,5 @@
 .generateRecipe{
-    
-    max-width: 75%;
+    width: 40%;
     padding: 1rem;
     margin: 3rem;
     display: flex;
@@ -36,6 +35,10 @@
     
 
     text-align: center;
+}
+.input:hover{
+    background-color: #E7D7A4;
+
 }
 input::placeholder{
     color: #A51F1F;
