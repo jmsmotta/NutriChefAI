@@ -1,21 +1,21 @@
 import React from "react";
 
 interface RecipeProps {
-    ingredients: string[];
+    ingredients: {amount: number , name: string, unit: string}[];
     preparation: string[];
     harmonizations: { tip: string; justification: string }[];
 }
 
 export default function Recipe(props: RecipeProps){
 
-    console.log("dica 1" , props.harmonizations);
+    
    
 
     return (
         <>
              <h2>Ingredientes:</h2>
 
-             <ul> {props.ingredients.map((ingredient, index) => (<li key={index}>{ingredient}</li> ))} </ul>
+             <ul> {props.ingredients.map((ingredient, index) => (<li key={index}>{ingredient.amount} {ingredient.unit} de {ingredient.name}</li> ))} </ul>
 
              <h2>Modo de Preparo:</h2>
              <ol> {props.preparation.map((step, index) => (<li key={index}>{step}</li>))} </ol>

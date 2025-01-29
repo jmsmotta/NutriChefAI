@@ -1,4 +1,3 @@
-//import { error } from "console";
 import {clearJson} from "./convertJson"
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
@@ -20,12 +19,12 @@ export async function getRecipe(ingredients) { //recebe uma lista de ingrediente
       {
         "title": "um nome criativo para o prato",
         "ingredients": [
-          "ingrediente 1",
-          "ingrediente 2",
-          "ingrediente 3", ...
-          "1ingrediente n-2",
-          "ingrediente n-1",
-          "ingrediente n"
+          {"name" : "ingrediente 1", "unit" : "'g' ou 'ml' ", "amount" : number},
+          {"name" : "ingrediente 2", "unit" : "'g' ou 'ml' ", "amount" : number},
+          {"name" : "ingrediente 3", "unit" : "'g' ou 'ml' ", "amount" : number}, ...
+          {"name" : "ingrediente n-2", "unit" : "'g' ou 'ml' ", "amount" : number}",
+          {"name" : "ingrediente n-1", "unit" : "'g' ou 'ml' ", "amount" : number},
+          {"name" : "ingrediente n", "unit" : "'g' ou 'ml' ", "amount" : number}
         ],
         "preparation": [
             "Passo 1",
