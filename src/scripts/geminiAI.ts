@@ -1,5 +1,6 @@
 import {clearJson} from "./convertJson"
 
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
   // Configura a API do Google Generative AI
@@ -57,16 +58,36 @@ export async function getRecipe(ingredients : string[]) { //recebe uma lista de 
     return cleanText; 
 }
 
-export async function translate(ingredient : string){
-  let prompt = ` 
-    Traduza do português brasileiro para o inglês o seguinte ingrediente culinário: ${ingredient};
-
-    Sua resposta deve apresentar apenas um resultado, no formato : "response"
+export async function getRecipeNutricion(ingredients : {name: string, amount: number, unit: string;}[]){
+  let prompt = ` Forneça a quantidade de macro nutrientres (carboidrato, gordura e proteína) e calorias, dos seguintes alimentos em suas respectiva quantidades:
   `;
+  for (let i = 0; i < ingredients.length; i++) {
+    prompt += `${ingredients[i].amount} ${ingredients[i].unit} de ${ingredients[i].name}`
+  }
+  prompt += `;\n A resposta deve ser formatada como num arquivo JSON, no seguinte modelo:
+      {
+        "nutricion" = [{
+        "name" : "ingrediente 1", 
+        "unit" : "'g' ou 'ml' ", 
+        "amount" : number, 
+        "carbohydrate" : number, 
+        "fat" : number, 
+        "protein" : number,
+        "calories" : number}
+        ],
+        "total" = {"totalCarb" : number,
+        "totalFat" : number,
+        "totalProtein" : number,
+        "totalCalories" : number,
+        }
+        }
 
-  const result = await model.generateContent(prompt)
+    `;
 
-  return result;
+  const result = await model.generateContent(prompt);
+  const cleanText = clearJson(result.response.text());
+   
+  return cleanText;
 }
 
 

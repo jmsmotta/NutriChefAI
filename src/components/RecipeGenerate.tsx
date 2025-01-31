@@ -2,15 +2,14 @@ import React, { useState } from "react";
 
 import  '../Styles/RecipeGenerate.css';
 
-import {getRecipe} from '../scripts/geminiAI';
-import {transformIngredient, getIngredientId, API_KEY} from '../scripts/spoonacular'
+import {getRecipe, getRecipeNutricion} from '../scripts/geminiAI';
 import Recipe from "./Recipe";
 
 
 export default function RecipeGenerate() {
   const [geminiAI, setGeminiAI] = useState <any | null>(null);
   const [userIngredientes, setUserIngredientes] = useState(""); // Para capturar o valor do input
-
+  const [nutrition, setNutrition] = useState <any | null>(null);
   
   
   // Função chamada ao clicar no botão
@@ -20,17 +19,15 @@ export default function RecipeGenerate() {
 
     try {
         const response = await getRecipe(listUserIngredients);
-        let newingredients = transformIngredient(response.ingredients)
-        let ingredientsID = newingredients.map(ingredient => getIngredientId(ingredient));
+        const nutrition = await getRecipeNutricion(response.ingredients);
+        setNutrition(nutrition);
+        console.log("teste: ", nutrition)
         
-        console.log(ingredientsID);
         setGeminiAI(response);
         
     } catch (error) {
         console.error("Erro ao gerar a receita:", error);
-        <>
-        deu errado
-        </>
+        
     }
   };
 
@@ -60,6 +57,27 @@ export default function RecipeGenerate() {
             <div className="text-content">
            
               <Recipe  ingredients={geminiAI.ingredients} preparation={geminiAI.preparation} harmonizations={geminiAI.harmonizations}/>
+
+              <>
+              <h2>Nutrição: </h2>
+              <div style={{display:"flex", flexDirection: "row"}}>
+                <ul>
+                  
+                  <li>
+                    Total carboidratos: {nutrition.total.totalCarb}
+                  </li>
+                  <li>
+                    Total gorduras: {nutrition.total.totalFat}
+                  </li>
+                  <li>
+                    Total proteina: {nutrition.total.totalProtein}
+                  </li>
+                  <li>
+                    Total calorias: {nutrition.total.totalCalories}
+                  </li>
+                </ul>
+              </div>
+              </>
             </div>
                     
           </div>                  
