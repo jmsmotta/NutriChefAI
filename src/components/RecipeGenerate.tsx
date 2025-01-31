@@ -4,6 +4,7 @@ import  '../Styles/RecipeGenerate.css';
 
 import {getRecipe, getRecipeNutricion} from '../scripts/geminiAI';
 import Recipe from "./Recipe";
+import NutritionTable from "./nutritionTable";
 
 
 export default function RecipeGenerate() {
@@ -22,6 +23,7 @@ export default function RecipeGenerate() {
         const nutrition = await getRecipeNutricion(response.ingredients);
         setNutrition(nutrition);
         console.log("teste: ", nutrition)
+        console.log("zxcz: ", nutrition.total)
         
         setGeminiAI(response);
         
@@ -58,29 +60,15 @@ export default function RecipeGenerate() {
            
               <Recipe  ingredients={geminiAI.ingredients} preparation={geminiAI.preparation} harmonizations={geminiAI.harmonizations}/>
 
-              <>
-              <h2>Nutrição: </h2>
-              <div style={{display:"flex", flexDirection: "row"}}>
-                <ul>
-                  
-                  <li>
-                    Total carboidratos: {nutrition.total.totalCarb}
-                  </li>
-                  <li>
-                    Total gorduras: {nutrition.total.totalFat}
-                  </li>
-                  <li>
-                    Total proteina: {nutrition.total.totalProtein}
-                  </li>
-                  <li>
-                    Total calorias: {nutrition.total.totalCalories}
-                  </li>
-                </ul>
-              </div>
-              </>
             </div>
+            <NutritionTable 
+                          totalCalories={nutrition.total.totalCalories} 
+                          totalCarb={nutrition.total.totalCarb} 
+                          totalFat={nutrition.total.totalFat} 
+                          totalProtein={nutrition.total.totalProtein} 
+                        />
+          </div>        
                     
-          </div>                  
         </div>
                 ) : null}
     </div>
