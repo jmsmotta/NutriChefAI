@@ -3,10 +3,10 @@ import {clearJson} from "./convertJson"
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
   // Configura a API do Google Generative AI
-  const genAI = new GoogleGenerativeAI("AIzaSyAy-e2iqgTSiaiLjpYki3nSMbLt4OxSLJY");
+  const genAI = new GoogleGenerativeAI("AIzaSyACvNTNOeOaoZJQbvD13vKSP3re2UjKCK4");
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-export async function getRecipe(ingredients) { //recebe uma lista de ingredientes
+export async function getRecipe(ingredients : string[]) { //recebe uma lista de ingredientes
 
     // Define o prompt com base nos ingredientes
    
@@ -49,7 +49,6 @@ export async function getRecipe(ingredients) { //recebe uma lista de ingrediente
     Onde i<=8 ; n <= 8
     `;
     
- 
     // Aguarda a resposta da API
     const result = await model.generateContent(prompt)
     // transforma resposta em um Json
@@ -58,6 +57,17 @@ export async function getRecipe(ingredients) { //recebe uma lista de ingrediente
     return cleanText; 
 }
 
+export async function translate(ingredient : string){
+  let prompt = ` 
+    Traduza do português brasileiro para o inglês o seguinte ingrediente culinário: ${ingredient};
+
+    Sua resposta deve apresentar apenas um resultado, no formato : "response"
+  `;
+
+  const result = await model.generateContent(prompt)
+
+  return result;
+}
 
 
 

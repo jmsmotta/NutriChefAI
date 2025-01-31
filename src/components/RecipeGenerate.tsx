@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import  '../Styles/RecipeGenerate.css';
 
-import {getRecipe} from '../scripts/geminiAI.js';
-import {transformIngredient, getIngredientId} from '../scripts/spoonacular'
+import {getRecipe} from '../scripts/geminiAI';
+import {transformIngredient, getIngredientId, API_KEY} from '../scripts/spoonacular'
 import Recipe from "./Recipe";
 
 
@@ -11,7 +11,7 @@ export default function RecipeGenerate() {
   const [geminiAI, setGeminiAI] = useState <any | null>(null);
   const [userIngredientes, setUserIngredientes] = useState(""); // Para capturar o valor do input
 
-  getIngredientId("tomato");
+  
   
   // Função chamada ao clicar no botão
   const handleGenerate = async () => {
@@ -20,8 +20,10 @@ export default function RecipeGenerate() {
 
     try {
         const response = await getRecipe(listUserIngredients);
-        let ingredients = transformIngredient(response.ingredients)
-        console.log("resposta:" , response);
+        let newingredients = transformIngredient(response.ingredients)
+        let ingredientsID = newingredients.map(ingredient => getIngredientId(ingredient));
+        
+        console.log(ingredientsID);
         setGeminiAI(response);
         
     } catch (error) {
