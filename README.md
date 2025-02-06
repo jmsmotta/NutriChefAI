@@ -1,6 +1,6 @@
 # [NutriChefAI](https://nutri-chef-ai-beta.vercel.app)
 
-<img src="imagem.png" alt="imagem demonstração">
+<img src="public/images/imagem_demonstração.jpg" alt="imagem demonstração">
 
 > Gerador de receitas criativas a partir de ingredientes
 
