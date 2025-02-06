@@ -4,7 +4,8 @@ import {clearJson} from "./convertJson"
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
   // Configura a API do Google Generative AI
-  const genAI = new GoogleGenerativeAI("AIzaSyACvNTNOeOaoZJQbvD13vKSP3re2UjKCK4");
+  const apiKey = `${process.env.NEXT_PUBLIC_GEMINI_APIKEY}`
+  const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export async function getRecipe(ingredients : string[]) { //recebe uma lista de ingredientes
