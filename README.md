@@ -1,8 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# [NutriChefAI](https://nutri-chef-ai-beta.vercel.app)
 
-## Getting Started
+<img src="imagem.png" alt="imagem demonstração">
 
-First, run the development server:
+> Gerador de receitas criativas a partir de ingredientes
+
+### Ajustes e melhorias
+
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
+
+- [ ] Geração de imagem de inspiração
+- [ ] Compartilhamento de receitas
+- [ ] Pesquisa por ingredientes otimizada
+- [ ] Melhora no design
+
+## 🚀 Getting Started
+
+Para rodar localmente:
 
 ```bash
 npm run dev
@@ -14,23 +27,23 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ☕ Usando NutriChefAI
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para usar NutriChefAI, siga estas etapas:
 
-## Learn More
+```
+1. Digite os ingredientes que você tem disponível separados por ponto e vírgula ;
+2. Aguarde a receita ser gerada ;)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Colaboradores
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Fabrício Aranha < fa3 >
+- Filipe Bezerra < fbms >
+- Pedro Sarmento < phsp >
+- Peterson Jesus < pjfm >
+- João Motta < jmsm3 >
