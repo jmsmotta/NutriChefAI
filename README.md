@@ -2,16 +2,30 @@
 
 <img src="public/images/imagem_demonstração.jpg" alt="imagem demonstração">
 
-> Gerador de receitas criativas a partir de ingredientes
+> Gerador de receitas criativas com uso de inteligência artificial a partir de ingredientes dados pelo o usuário
 
-### Ajustes e melhorias
+## 💻 Features
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
+- Geração de receitas por meio da inteligência artificial GeminAI
+- Geração da tabela nutricional referente a receita gerada
 
-- [ ] Geração de imagem de inspiração
-- [ ] Compartilhamento de receitas
-- [ ] Pesquisa por ingredientes otimizada
-- [ ] Melhora no design
+## 💾 Tecnologias Usadas
+
+* Next.js - Usado no Front-End
+* Node.js - Usado no Back-End
+* Vercel - Usado para hospedar o site
+* GeminAI - API para geração das receitas
+* Spoonacular - API para receber a tabela nutricional
+
+### Requisitos
+
+Instalações necessárias:
+- Next.js
+- Node.js
+
+## 📄 Documentação
+
+[Notion]()
 
 ## 🚀 Getting Started
 
@@ -38,12 +52,22 @@ Para usar NutriChefAI, siga estas etapas:
 2. Aguarde a receita ser gerada ;)
 ```
 
+### Ajustes e melhorias
+
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
+
+- [ ] Geração de imagem de inspiração
+- [ ] Compartilhamento de receitas
+- [ ] Pesquisa por ingredientes otimizada
+- [ ] Melhora no design
+
+
 ## 🤝 Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-- Fabrício Aranha < fa3 >
-- Filipe Bezerra < fbms >
-- Pedro Sarmento < phsp >
-- Peterson Jesus < pjfm >
-- João Motta < jmsm3 >
+- [Fabrício Aranha <fa3>](https://github.com/Faranha300)
+- [Filipe Bezerra <fbms>](https://github.com/BezerraFilipe)
+- [Pedro Sarmento <phsp>](https://github.com/PedroSarment)
+- [Peterson Jesus <pjfm>](https://github.com/Petersonnave)
+- [João Motta <jmsm3>](https://github.com/jmsmotta)
