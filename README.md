@@ -1,8 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# [NutriChefAI](https://nutri-chef-ai-beta.vercel.app)
 
-## Getting Started
+<img src="public/images/imagem_demonstração.jpg" alt="imagem demonstração">
 
-First, run the development server:
+> Gerador de receitas criativas com uso de inteligência artificial a partir de ingredientes dados pelo o usuário
+
+## 💻 Features
+
+- Geração de receitas por meio da inteligência artificial GeminAI
+- Geração da tabela nutricional referente a receita gerada
+
+## 💾 Tecnologias Usadas
+
+* Next.js - Usado no Front-End
+* Node.js - Usado no Back-End
+* Vercel - Usado para hospedar o site
+* GeminAI - API para geração das receitas
+* Spoonacular - API para receber a tabela nutricional
+
+### Requisitos
+
+Instalações necessárias:
+- Next.js
+- Node.js
+
+## 📄 Documentação
+
+[Notion](https://www.notion.so/1590783275138090b2d2f478101145fa?v=1590783275138017a4a0000c3647d569&pvs=4)
+
+## 🚀 Getting Started
+
+Para rodar localmente:
 
 ```bash
 npm run dev
@@ -14,23 +41,33 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ☕ Usando NutriChefAI
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para usar NutriChefAI, siga estas etapas:
 
-## Learn More
+```
+1. Digite os ingredientes que você tem disponível separados por ponto e vírgula ;
+2. Aguarde a receita ser gerada ;)
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Ajustes e melhorias
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [ ] Geração de imagem de inspiração
+- [ ] Compartilhamento de receitas
+- [ ] Pesquisa por ingredientes otimizada
+- [ ] Melhora no design
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Colaboradores
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
+
+- [Fabrício Aranha <fa3>](https://github.com/Faranha300)
+- [Filipe Bezerra <fbms>](https://github.com/BezerraFilipe)
+- [Pedro Sarmento <phsp>](https://github.com/PedroSarment)
+- [Peterson Jesus <pjfm>](https://github.com/Petersonnave)
+- [João Motta <jmsm3>](https://github.com/jmsmotta)
