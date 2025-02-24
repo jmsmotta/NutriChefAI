@@ -26,6 +26,15 @@ export function clearJson(stringJson) {
 
 
 }
+function main(){
+    console.log('teste de caso normal, entrada: " asdasdas {"nome": "João", "idade": 25}"\n saída esperada: { nome: "João", idade: 25 }')
+    console.log(clearJson(' asdasdas {"nome": "João", "idade": 25}'))
 
 
+    console.log('teste de caso inválido, entrada: "{"nome": "Maria", "idade":"\n saída esperada: Mensagem de erro no console ')
+    console.log(clearJson('{"nome": "Maria", "idade":'))
 
+
+}
+
+main()
